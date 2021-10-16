@@ -27,9 +27,9 @@ def matrix_inverse_Z26(matrix: np.matrix):  # only for 2x2 matrix
 
 
 def string_to_Matrix_Z26(message_text, m_rows, n_cols):
-    excess = m_rows*n_cols - len(message_text)
+    overflow_count = m_rows*n_cols - len(message_text)
 
-    if excess < 0:
+    if overflow_count < 0:
         print("Invalid Input: m_rows x n")
         return
 
@@ -43,7 +43,7 @@ def string_to_Matrix_Z26(message_text, m_rows, n_cols):
                 return
 
         matrix = [English_Alphabet.index(i) for i in message_text.upper()]
-        for _ in range(excess):  # adding trailing Z as Dummy Alphabet
+        for _ in range(overflow_count):  # adding trailing Z as Dummy Alphabet
             matrix.append(English_Alphabet.index("Z"))
         matrix = np.matrix(matrix)
 
