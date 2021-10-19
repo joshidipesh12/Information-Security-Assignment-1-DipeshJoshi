@@ -1,47 +1,65 @@
-from string import ascii_uppercase as EA
+from string import ascii_uppercase as English_Alphabets
+from utilities import inverse_Z26
 
 
-def inverse_Z26(a):
-    try:
-        y = pow(a, -1, 26)
-        return y
-    except ValueError:
-        print(f"Value of 'a' -> {a} is Non-Invertible in Z-26.")
-        return None
+def encrypt(message, a, b):
+    """
+    Method Defined for ENCRYPTION of a Simple String message 
+    into a Cipher Text Using Affine Cipher Technique
 
+    \nPARAMETERS\n
+    message: string to be encrypted
+    a: integer coefficient of x
+    b: integer additive value
 
-def encrypt(m, a, b):
+    \nRETURNS\n
+    Cipher_Text: encrypted Message string
+    """
+
     if inverse_Z26(a) == None:
         return
 
-    CT = ""
-    message = m.upper().split(" ")
-    for word in message:
-        for i in word:
-            if i in EA:
-                index = ((a*EA.index(i))+b) % 26
-                CT += EA[index]
+    Cipher_Text = ""
+    message_chars = message.upper().split(" ")
+    for char in message_chars:
+        for i in char:
+            if i in English_Alphabets:
+                index = ((a*English_Alphabets.index(i))+b) % 26
+                Cipher_Text += English_Alphabets[index]
             else:
                 print("Invalid Input\n")
                 return
-        CT += " "
-    return CT
+        Cipher_Text += " "
+    return Cipher_Text[:-1]
 
 
-def decrypt(C_text, a, b):
+def decrypt(Cipher_Text, a, b):
+    """
+    Method Defined to DECRYPTION of a Cipher Text String 
+    into the original Message Using Affine Cipher Technique
+
+    \nPARAMETERS\n
+    CipherText: string to be decrypted
+    a: integer coefficient of x
+    b: integer additive value
+
+    \nRETURNS\n
+    message: decrypted string of Original Message
+    """
+
     a_inverse = inverse_Z26(a)
     if a_inverse == None:
         return
 
     message = ""
-    CT = C_text.upper().split(" ")
-    for word in CT:
-        for i in word:
-            if i in EA:
-                index = (a_inverse*(EA.index(i)-b)) % 26
-                message += EA[index]
+    Cipher_Text_chars = Cipher_Text.upper().split(" ")
+    for char in Cipher_Text_chars:
+        for i in char:
+            if i in English_Alphabets:
+                index = (a_inverse*(English_Alphabets.index(i)-b)) % 26
+                message += English_Alphabets[index]
             else:
                 print("Invalid Input\n")
                 return
         message += " "
-    return message
+    return message[:-1]
