@@ -1,4 +1,5 @@
-"""This module contains the encryption and decryption 
+""" # 2x2 Hill Cipher
+    This module contains the encryption & decryption
     logic corresponding to 2x2 Hill Cipher
 """
 
@@ -12,8 +13,9 @@ import math
 
 
 def encrypt(message_text, key):
-    """Method Defined for ENCRYPTION of a Simple String message 
-    into a Cipher Text Using 2x2 Hill Cipher Technique
+    """Method Defined for ENCRYPTION of a Simple \
+    String message into a Cipher Text Using \
+    2x2 Hill Cipher Technique
 
     \nPARAMETERS\n
     message_text: string to be encrypted
@@ -23,7 +25,7 @@ def encrypt(message_text, key):
     cipher_text: encrypted Message string
     """
 
-    # for 2x2 Hill Cipher the length of key must be <= 4
+    # for 2x2 Hill Cipher length of key must be <= 4
     # print("Warning: All Spaces with be lost!")
     cipher_text = ""
 
@@ -31,7 +33,7 @@ def encrypt(message_text, key):
     if len(key) <= 4:
         key_matrix = string_to_Matrix_Z26(key, 2, 2)
     else:
-        print("Length of Key must be less than 5 for 2x2 Hill Cipher")
+        print("Key Length must be <= 4 in 2x2 Hill Cipher")
         return
 
     pairs = math.ceil((len(message_text)/2))
@@ -46,18 +48,23 @@ def encrypt(message_text, key):
 
     for i in range(pairs):
         result_char = (key_matrix*matrix[:, i]) % 26
-        cipher_text += ENGLISH_ALPHABETS[result_char[0, 0]]
-        cipher_text += ENGLISH_ALPHABETS[result_char[1, 0]]
+        cipher_text += ENGLISH_ALPHABETS[
+            result_char[0, 0]
+        ]
+        cipher_text += ENGLISH_ALPHABETS[
+            result_char[1, 0]
+        ]
     return cipher_text
 
 
 def decrypt(cipher_text, key):
-    """Method Defined for DECRYPTION of a String Cipher Text 
-    into the original message Using 2x2 Hill Cipher Technique
+    """Method Defined for DECRYPTION of a \
+    String Cipher Text into the original \
+    message Using 2x2 Hill Cipher Technique
 
     \nPARAMETERS\n
     cipher_text: string to be decrypted
-    key: string key for encryption with length <= 4
+    key: string key for encryption, length <= 4
 
     \nRETURNS\n
     message: decrypted Message string
@@ -70,7 +77,7 @@ def decrypt(cipher_text, key):
         key_matrix = string_to_Matrix_Z26(key, 2, 2)
         key_matrix = matrix_inverse_Z26(key_matrix)
     else:
-        print("Length of Key must be less than 5 for 2x2 Hill Cipher")
+        print("Key Length must be <= 4 in 2x2 Hill Cipher")
         return
 
     pairs = math.ceil((len(cipher_text)/2))
@@ -79,8 +86,12 @@ def decrypt(cipher_text, key):
     if type(key_matrix) != type(None):
         for i in range(pairs):
             result_char = (key_matrix*matrix[:, i]) % 26
-            message_text += ENGLISH_ALPHABETS[result_char[0, 0]]
-            message_text += ENGLISH_ALPHABETS[result_char[1, 0]]
+            message_text += ENGLISH_ALPHABETS[
+                result_char[0, 0]
+            ]
+            message_text += ENGLISH_ALPHABETS[
+                result_char[1, 0]
+            ]
     else:
         print("Unable to decrypt Cipher")
         print("The key is Non-Invertible")
