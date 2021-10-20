@@ -3,7 +3,10 @@
 """
 
 # importing required modules, methods and constants
-from utilities import matrix_inverse_Z26, string_to_Matrix_Z26
+from modules.utilities import (
+    matrix_inverse_Z26,
+    string_to_Matrix_Z26
+)
 from constants import ENGLISH_ALPHABETS
 import math
 
@@ -34,11 +37,17 @@ def encrypt(message_text, key):
     pairs = math.ceil((len(message_text)/2))
     matrix = string_to_Matrix_Z26(message_text, 2, pairs)
 
+    key_inverse = matrix_inverse_Z26(key_matrix)
+    if type(key_inverse) == type(None):
+        print("NOTE: The provided Key is NOT Invertible,")
+        print("To avoid failure while decryption,")
+        print("Try again with an invertible Key")
+        return None
+
     for i in range(pairs):
         result_char = (key_matrix*matrix[:, i]) % 26
         cipher_text += ENGLISH_ALPHABETS[result_char[0, 0]]
         cipher_text += ENGLISH_ALPHABETS[result_char[1, 0]]
-
     return cipher_text
 
 
@@ -67,9 +76,13 @@ def decrypt(cipher_text, key):
     pairs = math.ceil((len(cipher_text)/2))
     matrix = string_to_Matrix_Z26(cipher_text, 2, pairs)
 
-    for i in range(pairs):
-        result_char = (key_matrix*matrix[:, i]) % 26
-        message_text += ENGLISH_ALPHABETS[result_char[0, 0]]
-        message_text += ENGLISH_ALPHABETS[result_char[1, 0]]
+    if type(key_matrix) != type(None):
+        for i in range(pairs):
+            result_char = (key_matrix*matrix[:, i]) % 26
+            message_text += ENGLISH_ALPHABETS[result_char[0, 0]]
+            message_text += ENGLISH_ALPHABETS[result_char[1, 0]]
+    else:
+        print("Unable to decrypt Cipher")
+        print("The key is Non-Invertible")
 
     return message_text

@@ -7,7 +7,13 @@ __author__ = 'Dipesh Joshi'
 
 # importing required modules, methods and constants
 import time
-from modules import additive_cipher, affine_cipher, hill_cipher, letter_frequency_additive, letter_frequency_monoalphabatic
+from modules import (
+    additive_cipher,
+    affine_cipher,
+    hill_cipher,
+    letter_frequency_additive,
+    letter_frequency_monoalphabatic
+)
 
 
 def get_string_input(message="Enter: "):
@@ -16,7 +22,7 @@ def get_string_input(message="Enter: "):
 
 
     PARAMETERS\n
-    message: string to show as prompt for input (default: 'Enter: ')
+    message: string to show as prompt (default: 'Enter: ')
 
     RETURNS\n
     input_value: user input as string (default: ' ')

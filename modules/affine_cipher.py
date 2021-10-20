@@ -4,7 +4,7 @@
 
 # importing required modules, methods and constants
 from constants import ENGLISH_ALPHABETS
-from utilities import inverse_Z26
+from modules.utilities import inverse_Z26
 
 
 def encrypt(message, a, b):

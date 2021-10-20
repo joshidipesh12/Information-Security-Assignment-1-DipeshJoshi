@@ -5,6 +5,7 @@
 # importing required modules, methods and constants
 from constants import ENGLISH_ALPHABETS
 import numpy as np
+import math
 
 
 def string_to_Matrix_Z26(message_text, m_rows, n_cols) -> np.matrix:
@@ -66,25 +67,29 @@ def matrix_inverse_Z26(input_matrix: np.matrix):  # only for 2x2 matrix
     else:
         determinant = None
         try:
-            determinant = inverse_Z26(
-                int(np.linalg.determinant(output_matrix)))
+            det = np.linalg.det(output_matrix)
+            determinant = inverse_Z26(math.floor(det))
         except:
             print("Non-Invertible Matrix Recieved!")
+        if type(determinant) == type(None):
             return determinant
 
-        output_matrix[0, 0], output_matrix[1,
-                                           1] = output_matrix[1, 1], output_matrix[0, 0]
+        temp = output_matrix[0, 0]
+        output_matrix[0, 0] = output_matrix[1, 1]
+        output_matrix[1, 1] = temp
+
         for i in range(output_matrix.shape[1]):
             for j in range(output_matrix.shape[0]):
-                output_matrix[i, j] = determinant * \
-                    pow(-1, i+j)*output_matrix[i, j]
+                adjoint = pow(-1, i+j)*output_matrix[i, j]
+                output_matrix[i, j] = determinant * adjoint
 
         return np.matrix(output_matrix % 26)
 
 
 def inverse_Z26(integer):
-    """Method Defined to calculate the inverse of an Integer in Z-26 
-    and avoiding ValueError is inverse doesn't exists
+    """Method Defined to calculate the inverse of 
+    an Integer in Z-26  and avoiding ValueError is 
+    inverse doesn't exists
 
     \nPARAMETERS\n
     integer: input integer for inversion
