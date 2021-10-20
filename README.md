@@ -1,5 +1,7 @@
 # Information Security Assignment 1
 
+![python-shield]
+
 ## About
 
 This project includes solutions to the assignment under the subject `Information Security`.
@@ -9,9 +11,14 @@ This project includes solutions to the assignment under the subject `Information
 - Letter Frequency Attack
 - 2x2 Hill Cipher
 
-Assigned on: October 14 '21
+```bash
+# start from here
+python3 main.py
+```
 
-Submitted on: October 21 '21
+Date Assigned: October 14 '21
+
+Date Submitted: October 21 '21
 
 Author: `Dipesh Joshi`
 
@@ -25,10 +32,10 @@ Author: `Dipesh Joshi`
 
 ## Contact
 
-[![Instagram][insta-shield]][insta-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-[![LinkedIn][github-shield]][github-url]
-[![LinkedIn][gitlab-shield]][gitlab-url]
+[![Gitlab][gitlab-shield]][gitlab-url]
+[![Instagram][insta-shield]][insta-url]
+[![Github][github-shield]][github-url]
 
 ###### Distributed under the Apache License 2.0. See `LICENSE` for more information.
 
@@ -40,3 +47,4 @@ Author: `Dipesh Joshi`
 [github-url]: https://github.com/joshidipesh12/
 [gitlab-shield]: https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white
 [gitlab-url]: https://gitlab.com/joshidipesh12/
+[python-shield]: https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen
