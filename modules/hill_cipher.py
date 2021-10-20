@@ -11,7 +11,7 @@ def encrypt(message_text, key):
 
     \nPARAMETERS\n
     message_text: string to be encrypted
-    key: integer key for encryption
+    key: string key for encryption with length <= 4
 
     \nRETURNS\n
     cipher_text: encrypted Message string
@@ -46,7 +46,7 @@ def decrypt(cipher_text, key):
 
     \nPARAMETERS\n
     cipher_text: string to be decrypted
-    key: integer key used while encryption
+    key: string key for encryption with length <= 4
 
     \nRETURNS\n
     message: decrypted Message string
