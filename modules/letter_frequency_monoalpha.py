@@ -1,4 +1,6 @@
-"""This module contains Letter Frequency Attack logic 
+""" ## Letter Frequency Attack (Mono-Alphabatic \
+    Substitution)
+    This module contains Letter Frequency Attack logic 
     corresponding to Monoalphabatic Substitution Cipher
 """
 
@@ -7,9 +9,10 @@ from constants import ENGLISH_LETTERS_SORTED
 
 
 def possible_messages(cipher_text):
-    """Method defined to perform Letter Frequency attack on Cipher Text 
-    encrypted using generalized Mono-Alphabatic Substitution Cipher 
-    Technique returning 10 possible solutions.
+    """Method defined to perform Letter Frequency attack \
+    on Cipher Text encrypted using generalized Mono \
+    Alphabatic Substitution Cipher Technique returning \
+    10 possible solutions.
 
     \nPARAMETERS\n
     cipher_text: encrypted message string
@@ -19,27 +22,31 @@ def possible_messages(cipher_text):
         in the order of likelihood (most to least)
     """
 
+    # defining variables
     message_length = len(cipher_text)
     possible_strings = []
 
-    letter_frequencies = [0] * 26
-    letters_sorted_by_frequencies = [None] * 26
+    # list to store frequencies
+    letter_frequency = [0] * 26
+    frequencies_sorted = [None] * 26
 
     used_letters = [0] * 26
 
+    # looping though message and storing frequencies
     for i in range(message_length):
         if cipher_text[i] != ' ':
-            letter_frequencies[ord(cipher_text[i]) - 65] += 1
+            letter_frequency[ord(cipher_text[i]) - 65] += 1
 
     # Copying the frequency list
-    letters_sorted_by_frequencies = letter_frequencies.copy()
-    letters_sorted_by_frequencies.sort(reverse=True)
+    frequencies_sorted = letter_frequency.copy()
+    frequencies_sorted.sort(reverse=True)
 
+    # calculating 10 possible plain texts
     for i in range(10):
         position_check = -1
 
         for j in range(26):
-            if (letters_sorted_by_frequencies[i] == letter_frequencies[j]
+            if (frequencies_sorted[i] == letter_frequency[j]
                     and used_letters[j] == 0):
                 used_letters[j] = 1
                 position_check = j
@@ -48,17 +55,22 @@ def possible_messages(cipher_text):
         if position_check == -1:
             break
 
+        # Storing the numerical equivalent of letter
+        # at ith index of array
+        # Calculate the probable shift used in
+        # monoalphabetic cipher
         numeric_value = ord(ENGLISH_LETTERS_SORTED[i]) - 65
         numeric_value -= position_check
 
         possible_message = ""
 
-        for k in range(message_length):
-            if cipher_text[k] == ' ':
+        for j in range(message_length):
+            if cipher_text[j] == ' ':
                 possible_message += " "
                 continue
 
-            current_num_value = ord(cipher_text[k]) - 65
+            # Shifting the jth letter of the cipher
+            current_num_value = ord(cipher_text[j]) - 65
             current_num_value += numeric_value
 
             if current_num_value < 0:
@@ -68,4 +80,5 @@ def possible_messages(cipher_text):
 
             possible_message += chr(current_num_value + 65)
         possible_strings.append(possible_message)
+
     return possible_strings
