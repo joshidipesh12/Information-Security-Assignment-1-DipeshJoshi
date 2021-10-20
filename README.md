@@ -2,7 +2,7 @@
 
 ![python-shield]
 
-## About
+## About Project
 
 This project includes solutions to the assignment under the subject `Information Security`.
 
@@ -20,7 +20,7 @@ Date Assigned: October 14 '21
 
 Date Submitted: October 21 '21
 
-Author: `Dipesh Joshi`
+Submitter: `Dipesh Joshi`
 
 ## Problem Statement
 
