@@ -1,6 +1,6 @@
-from string import ascii_uppercase as English_Alphabets
+# importing required modules, methods and constants
+from constants import ENGLISH_LETTERS_SORTED, ENGLISH_ALPHABETS
 from modules.additive_cipher import decrypt
-from constants import ENGLISH_LETTERS_SORTED
 
 
 def possible_messages(cipher_text: str):
@@ -18,10 +18,10 @@ def possible_messages(cipher_text: str):
 
     possible_strings = dict({})  # key: string
 
-    letter_frequencies = dict({i: 0 for i in English_Alphabets})
+    letter_frequencies = dict({i: 0 for i in ENGLISH_ALPHABETS})
 
     for i in cipher_text.upper():
-        if i in English_Alphabets:
+        if i in ENGLISH_ALPHABETS:
             letter_frequencies[i] += 1
 
     sorted_letters = list(dict(sorted(letter_frequencies.items(),
@@ -29,8 +29,8 @@ def possible_messages(cipher_text: str):
                                       reverse=True)).keys())
 
     for i in range(10):
-        key = (English_Alphabets.index(sorted_letters[i])
-               - English_Alphabets.index(ENGLISH_LETTERS_SORTED[i])) % 26
+        key = (ENGLISH_ALPHABETS.index(sorted_letters[i])
+               - ENGLISH_ALPHABETS.index(ENGLISH_LETTERS_SORTED[i])) % 26
         possible_message = decrypt(cipher_text, key)
         possible_strings.update({key: possible_message})
 

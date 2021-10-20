@@ -1,3 +1,4 @@
+# importing required modules, methods and constants
 from constants import ENGLISH_LETTERS_SORTED
 
 
