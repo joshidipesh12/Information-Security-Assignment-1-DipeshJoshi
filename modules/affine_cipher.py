@@ -1,4 +1,5 @@
-from string import ascii_uppercase as English_Alphabets
+# importing required modules, methods and constants
+from constants import ENGLISH_ALPHABETS
 from utilities import inverse_Z26
 
 
@@ -23,9 +24,9 @@ def encrypt(message, a, b):
     message_chars = message.upper().split(" ")
     for char in message_chars:
         for i in char:
-            if i in English_Alphabets:
-                index = ((a*English_Alphabets.index(i))+b) % 26
-                Cipher_Text += English_Alphabets[index]
+            if i in ENGLISH_ALPHABETS:
+                index = ((a*ENGLISH_ALPHABETS.index(i))+b) % 26
+                Cipher_Text += ENGLISH_ALPHABETS[index]
             else:
                 print("Invalid Input\n")
                 return
@@ -55,9 +56,9 @@ def decrypt(Cipher_Text, a, b):
     Cipher_Text_chars = Cipher_Text.upper().split(" ")
     for char in Cipher_Text_chars:
         for i in char:
-            if i in English_Alphabets:
-                index = (a_inverse*(English_Alphabets.index(i)-b)) % 26
-                message += English_Alphabets[index]
+            if i in ENGLISH_ALPHABETS:
+                index = (a_inverse*(ENGLISH_ALPHABETS.index(i)-b)) % 26
+                message += ENGLISH_ALPHABETS[index]
             else:
                 print("Invalid Input\n")
                 return

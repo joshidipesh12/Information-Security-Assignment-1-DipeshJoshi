@@ -1,4 +1,5 @@
-from string import ascii_uppercase as English_Alphabet
+# importing required modules, methods and constants
+from constants import ENGLISH_ALPHABETS
 import numpy as np
 
 
@@ -26,15 +27,16 @@ def string_to_Matrix_Z26(message_text, m_rows, n_cols) -> np.matrix:
     else:
         matrix_list = []
         for i in message_text.upper():
-            if i in English_Alphabet:
-                matrix_list.append(English_Alphabet.index(i))
+            if i in ENGLISH_ALPHABETS:
+                matrix_list.append(ENGLISH_ALPHABETS.index(i))
             else:
                 print("Invalid Input\n")
                 return
 
-        matrix_list = [English_Alphabet.index(i) for i in message_text.upper()]
+        matrix_list = [ENGLISH_ALPHABETS.index(
+            i) for i in message_text.upper()]
         for _ in range(overflow_count):  # adding trailing Z as Dummy Alphabet
-            matrix_list.append(English_Alphabet.index("Z"))
+            matrix_list.append(ENGLISH_ALPHABETS.index("Z"))
         matrix = np.matrix(matrix_list)
 
         return matrix.reshape(m_rows, n_cols, order="F")

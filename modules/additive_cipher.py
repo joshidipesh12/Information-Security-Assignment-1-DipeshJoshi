@@ -1,4 +1,5 @@
-from string import ascii_uppercase as English_Alphabet
+# importing required modules, methods and constants
+from constants import ENGLISH_ALPHABETS
 
 
 def encrypt(message, key):
@@ -18,9 +19,9 @@ def encrypt(message, key):
     message_chars = message.upper().split(" ")
     for part in message_chars:
         for i in part:
-            if i in English_Alphabet:
-                index = (English_Alphabet.index(i) + key) % 26
-                CipherText += English_Alphabet[index]
+            if i in ENGLISH_ALPHABETS:
+                index = (ENGLISH_ALPHABETS.index(i) + key) % 26
+                CipherText += ENGLISH_ALPHABETS[index]
             else:
                 print("Invalid Input\n")
                 return
@@ -44,9 +45,9 @@ def decrypt(CipherText, key):
     CipherText_chars = CipherText.upper().split(" ")
     for part in CipherText_chars:
         for i in part:
-            if i in English_Alphabet:
-                index = (English_Alphabet.index(i) - key) % 26
-                message += English_Alphabet[index]
+            if i in ENGLISH_ALPHABETS:
+                index = (ENGLISH_ALPHABETS.index(i) - key) % 26
+                message += ENGLISH_ALPHABETS[index]
             else:
                 print("Invalid Input\n")
                 return

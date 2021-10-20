@@ -1,5 +1,6 @@
-from string import ascii_uppercase as English_Alphabet
+# importing required modules, methods and constants
 from utilities import matrix_inverse_Z26, string_to_Matrix_Z26
+from constants import ENGLISH_ALPHABETS
 import math
 
 
@@ -32,8 +33,8 @@ def encrypt(message_text, key):
 
     for i in range(pairs):
         result_char = (key_matrix*matrix[:, i]) % 26
-        cipher_text += English_Alphabet[result_char[0, 0]]
-        cipher_text += English_Alphabet[result_char[1, 0]]
+        cipher_text += ENGLISH_ALPHABETS[result_char[0, 0]]
+        cipher_text += ENGLISH_ALPHABETS[result_char[1, 0]]
 
     return cipher_text
 
@@ -66,7 +67,7 @@ def decrypt(cipher_text, key):
 
     for i in range(pairs):
         result_char = (key_matrix*matrix[:, i]) % 26
-        message_text += English_Alphabet[result_char[0, 0]]
-        message_text += English_Alphabet[result_char[1, 0]]
+        message_text += ENGLISH_ALPHABETS[result_char[0, 0]]
+        message_text += ENGLISH_ALPHABETS[result_char[1, 0]]
 
     return message_text
