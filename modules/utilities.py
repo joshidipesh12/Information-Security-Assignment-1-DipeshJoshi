@@ -1,3 +1,7 @@
+"""module for centralized utility methods used 
+    all over the project.
+"""
+
 # importing required modules, methods and constants
 from constants import ENGLISH_ALPHABETS
 import numpy as np

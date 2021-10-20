@@ -1,3 +1,7 @@
+"""This module contains Letter Frequency Attack
+    logic corresponding to Additive Cipher Texts
+"""
+
 # importing required modules, methods and constants
 from constants import ENGLISH_LETTERS_SORTED, ENGLISH_ALPHABETS
 from modules.additive_cipher import decrypt

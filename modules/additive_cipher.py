@@ -1,3 +1,7 @@
+"""This module contains the encryption and decryption 
+    logic corresponding to Additive Cipher
+"""
+
 # importing required modules, methods and constants
 from constants import ENGLISH_ALPHABETS
 

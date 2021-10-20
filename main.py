@@ -1,10 +1,17 @@
+"""main module for project execution
+    start by running `python3 main.py`
+"""
+
+__version__ = '0.1'
+__author__ = 'Dipesh Joshi'
+
 # importing required modules, methods and constants
 import time
-from modules import additive_cipher, affine_cipher, hill_cipher
+from modules import additive_cipher, affine_cipher, hill_cipher, letter_frequency_additive, letter_frequency_monoalphabatic
 
 
 def get_string_input(message="Enter: "):
-    """Method Defined to take string inputs from user with 
+    """Method Defined to take string inputs from user with
     some default value and avoid exceptions
 
 
@@ -24,7 +31,7 @@ def get_string_input(message="Enter: "):
 
 
 def get_integer_input(message="Enter: "):
-    """Method Defined to take integer inputs from user with 
+    """Method Defined to take integer inputs from user with
     some default value and avoid exceptions
 
     PARAMETERS\n

@@ -1,3 +1,7 @@
+"""This module contains the encryption and decryption 
+    logic corresponding to 2x2 Hill Cipher
+"""
+
 # importing required modules, methods and constants
 from utilities import matrix_inverse_Z26, string_to_Matrix_Z26
 from constants import ENGLISH_ALPHABETS

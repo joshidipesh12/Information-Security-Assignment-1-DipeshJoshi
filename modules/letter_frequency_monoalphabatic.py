@@ -1,3 +1,7 @@
+"""This module contains Letter Frequency Attack logic 
+    corresponding to Monoalphabatic Substitution Cipher
+"""
+
 # importing required modules, methods and constants
 from constants import ENGLISH_LETTERS_SORTED
 

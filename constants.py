@@ -1,3 +1,5 @@
-
+"""module for centralized constants used 
+    all over the project.
+"""
 ENGLISH_LETTERS_SORTED = "ETAOINSHRDLCUMWFGYPBVKJXQZ"
 ENGLISH_ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
