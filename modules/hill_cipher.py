@@ -5,8 +5,7 @@ import math
 
 
 def encrypt(message_text, key):
-    """
-    Method Defined for ENCRYPTION of a Simple String message 
+    """Method Defined for ENCRYPTION of a Simple String message 
     into a Cipher Text Using 2x2 Hill Cipher Technique
 
     \nPARAMETERS\n
@@ -40,8 +39,7 @@ def encrypt(message_text, key):
 
 
 def decrypt(cipher_text, key):
-    """
-    Method Defined for DECRYPTION of a String Cipher Text 
+    """Method Defined for DECRYPTION of a String Cipher Text 
     into the original message Using 2x2 Hill Cipher Technique
 
     \nPARAMETERS\n

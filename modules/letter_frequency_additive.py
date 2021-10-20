@@ -4,8 +4,7 @@ from modules.additive_cipher import decrypt
 
 
 def possible_messages(cipher_text: str):
-    """
-    Method defined to perform Letter Frequency attack on Cipher Text 
+    """Method defined to perform Letter Frequency attack on Cipher Text 
     encrypted using Additive Cipher Technique returning 10 possible solutions.
 
     \nPARAMETERS\n

@@ -4,8 +4,7 @@ import numpy as np
 
 
 def string_to_Matrix_Z26(message_text, m_rows, n_cols) -> np.matrix:
-    """
-    Method Defined to convert a string to corresponding integer
+    """Method Defined to convert a string to corresponding integer
     matrix to be used for 2x2 Hill Cipher Technique.
     \nNOTE: In case of 2x2 Hill Cipher, both m_rows and n_cols is 2
 
@@ -43,8 +42,7 @@ def string_to_Matrix_Z26(message_text, m_rows, n_cols) -> np.matrix:
 
 
 def matrix_inverse_Z26(input_matrix: np.matrix):  # only for 2x2 matrix
-    """
-    Method Defined to calculate the inverse of 2x2 matrix
+    """Method Defined to calculate the inverse of 2x2 matrix
     in Z-26 to be used for 2x2 Hill Cipher Technique.
     In case of 2x2 Hill Cipher, both m_rows and n_cols is 2
 
@@ -81,8 +79,7 @@ def matrix_inverse_Z26(input_matrix: np.matrix):  # only for 2x2 matrix
 
 
 def inverse_Z26(integer):
-    """
-    Method Defined to calculate the inverse of an Integer in Z-26 
+    """Method Defined to calculate the inverse of an Integer in Z-26 
     and avoiding ValueError is inverse doesn't exists
 
     \nPARAMETERS\n

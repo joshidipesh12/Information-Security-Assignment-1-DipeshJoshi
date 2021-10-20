@@ -4,8 +4,7 @@ from utilities import inverse_Z26
 
 
 def encrypt(message, a, b):
-    """
-    Method Defined for ENCRYPTION of a Simple String message 
+    """Method Defined for ENCRYPTION of a Simple String message 
     into a Cipher Text Using Affine Cipher Technique
 
     \nPARAMETERS\n
@@ -35,8 +34,7 @@ def encrypt(message, a, b):
 
 
 def decrypt(Cipher_Text, a, b):
-    """
-    Method Defined to DECRYPTION of a Cipher Text String 
+    """Method Defined to DECRYPTION of a Cipher Text String 
     into the original Message Using Affine Cipher Technique
 
     \nPARAMETERS\n

@@ -3,8 +3,7 @@ from constants import ENGLISH_ALPHABETS
 
 
 def encrypt(message, key):
-    """
-    Method Defined for ENCRYPTION of a Simple String message 
+    """Method Defined for ENCRYPTION of a Simple String message 
     into a Cipher Text Using Additive Cipher Technique
 
     \nPARAMETERS\n
@@ -30,8 +29,7 @@ def encrypt(message, key):
 
 
 def decrypt(CipherText, key):
-    """
-    Method Defined to DECRYPTION of a Cipher Text String 
+    """Method Defined to DECRYPTION of a Cipher Text String 
     into the original Message Using Additive Cipher Technique
 
     \nPARAMETERS\n

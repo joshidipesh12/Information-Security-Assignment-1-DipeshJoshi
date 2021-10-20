@@ -3,8 +3,7 @@ from constants import ENGLISH_LETTERS_SORTED
 
 
 def possible_messages(cipher_text):
-    """
-    Method defined to perform Letter Frequency attack on Cipher Text 
+    """Method defined to perform Letter Frequency attack on Cipher Text 
     encrypted using generalized Mono-Alphabatic Substitution Cipher 
     Technique returning 10 possible solutions.
 

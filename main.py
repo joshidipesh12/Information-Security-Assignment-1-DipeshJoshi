@@ -4,8 +4,7 @@ from modules import additive_cipher, affine_cipher, hill_cipher
 
 
 def get_string_input(message="Enter: "):
-    """
-    Method Defined to take string inputs from user with 
+    """Method Defined to take string inputs from user with 
     some default value and avoid exceptions
 
 
@@ -25,8 +24,7 @@ def get_string_input(message="Enter: "):
 
 
 def get_integer_input(message="Enter: "):
-    """
-    Method Defined to take integer inputs from user with 
+    """Method Defined to take integer inputs from user with 
     some default value and avoid exceptions
 
     PARAMETERS\n
@@ -73,7 +71,7 @@ if __name__ == "__main__":
             print(f"Encrypted Text: '{additive_cipher.encrypt(message, key)}'")
 
         elif choice == 2:
-            cipher_text = get_string_input("\nEnter Message Text: ")
+            cipher_text = get_string_input("\nEnter Cipher Text Text: ")
             key = get_integer_input("Enter value of key (default 10): ")
             print(
                 f"Decrypted Text: '{additive_cipher.decrypt(cipher_text, key)}'")
@@ -85,14 +83,15 @@ if __name__ == "__main__":
             print(f"Encrypted Text: '{affine_cipher.encrypt(message, a, b)}'")
 
         elif choice == 4:
-            cipher_text = get_string_input("\nEnter Message Text: ")
+            cipher_text = get_string_input("\nEnter Cipher Text Text: ")
             a = get_integer_input("Enter value of 'a' (default 10): ")
             b = get_integer_input("Enter value of 'b' (default 10): ")
             print(
                 f"Decrypted Text: '{affine_cipher.decrypt(cipher_text, a, b)}'")
 
         elif choice == 5:
-            print("")
+            cipher_text = get_string_input(
+                "\nEnter Cipher Text Text (encrypting using additive cipher): ")
 
         elif choice == 6:
             print("\nLetter Frequency Attack (Mono-Alphabatic Substitution Cipher)")
@@ -103,7 +102,7 @@ if __name__ == "__main__":
             print(f"Encrypted Text: '{hill_cipher.encrypt(message, key)}'")
 
         elif choice == 8:
-            cipher_text = get_string_input("\nEnter Message Text: ")
+            cipher_text = get_string_input("\nEnter Cipher Text Text: ")
             key = get_string_input("Enter value of key (4 chars at max): ")
             print(f"Decrypted Text: '{hill_cipher.decrypt(cipher_text, key)}'")
 
