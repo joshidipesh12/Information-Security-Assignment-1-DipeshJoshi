@@ -1,9 +1,22 @@
-from constants import ENGLISH_LETTERS_SORTED_BY_FREQUENCY
+from constants import ENGLISH_LETTERS_SORTED
 
 
-def possible_messages(message):
-    message_length = len(message)
-    plain_texts = []
+def possible_messages(cipher_text):
+    """
+    Method defined to perform Letter Frequency attack on Cipher Text 
+    encrypted using generalized Mono-Alphabatic Substitution Cipher 
+    Technique returning 10 possible solutions.
+
+    \nPARAMETERS\n
+    cipher_text: encrypted message string
+
+    \nRETURN\n
+    possible_strings: a list of possible decryptions 
+        in the order of likelihood (most to least)
+    """
+
+    message_length = len(cipher_text)
+    possible_strings = []
 
     letter_frequencies = [0] * 26
     letters_sorted_by_frequencies = [None] * 26
@@ -11,8 +24,8 @@ def possible_messages(message):
     used_letters = [0] * 26
 
     for i in range(message_length):
-        if message[i] != ' ':
-            letter_frequencies[ord(message[i]) - 65] += 1
+        if cipher_text[i] != ' ':
+            letter_frequencies[ord(cipher_text[i]) - 65] += 1
 
     # Copying the frequency list
     letters_sorted_by_frequencies = letter_frequencies.copy()
@@ -31,17 +44,17 @@ def possible_messages(message):
         if position_check == -1:
             break
 
-        numeric_value = ord(ENGLISH_LETTERS_SORTED_BY_FREQUENCY[i]) - 65
+        numeric_value = ord(ENGLISH_LETTERS_SORTED[i]) - 65
         numeric_value -= position_check
 
         possible_message = ""
 
         for k in range(message_length):
-            if message[k] == ' ':
+            if cipher_text[k] == ' ':
                 possible_message += " "
                 continue
 
-            current_num_value = ord(message[k]) - 65
+            current_num_value = ord(cipher_text[k]) - 65
             current_num_value += numeric_value
 
             if current_num_value < 0:
@@ -50,10 +63,5 @@ def possible_messages(message):
                 current_num_value -= 26
 
             possible_message += chr(current_num_value + 65)
-        plain_texts.append(possible_message)
-    return plain_texts
-
-
-def most_probable(message):
-    all_possible = possible_messages(message)
-    return all_possible[0]
+        possible_strings.append(possible_message)
+    return possible_strings

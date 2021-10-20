@@ -4,6 +4,18 @@ from constants import ENGLISH_LETTERS_SORTED
 
 
 def possible_messages(cipher_text: str):
+    """
+    Method defined to perform Letter Frequency attack on Cipher Text 
+    encrypted using Additive Cipher Technique returning 10 possible solutions.
+
+    \nPARAMETERS\n
+    cipher_text: encrypted message string
+
+    \nRETURN\n
+    possible_strings: a list of possible decryptions 
+    in the order of likelihood (most to least)
+    """
+
     possible_strings = dict({})  # key: string
 
     letter_frequencies = dict({i: 0 for i in English_Alphabets})
