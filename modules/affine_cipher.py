@@ -1,4 +1,5 @@
-"""This module contains the encryption and decryption 
+""" # Affine Cipher
+    This module contains the encryption & decryption \
     logic corresponding to Affine Cipher
 """
 
@@ -8,8 +9,8 @@ from modules.utilities import inverse_Z26
 
 
 def encrypt(message, a, b):
-    """Method Defined for ENCRYPTION of a Simple String message 
-    into a Cipher Text Using Affine Cipher Technique
+    """Method Defined for ENCRYPTION of Simple String \
+    message into a Cipher Text Using Affine Cipher
 
     \nPARAMETERS\n
     message: string to be encrypted
@@ -28,7 +29,11 @@ def encrypt(message, a, b):
     for char in message_chars:
         for i in char:
             if i in ENGLISH_ALPHABETS:
-                index = ((a*ENGLISH_ALPHABETS.index(i))+b) % 26
+                index = (
+                    (
+                        a * ENGLISH_ALPHABETS.index(i)
+                    )
+                    + b) % 26
                 Cipher_Text += ENGLISH_ALPHABETS[index]
             else:
                 print("Invalid Input\n")
@@ -38,8 +43,9 @@ def encrypt(message, a, b):
 
 
 def decrypt(Cipher_Text, a, b):
-    """Method Defined to DECRYPTION of a Cipher Text String 
-    into the original Message Using Affine Cipher Technique
+    """Method Defined to DECRYPTION of a Cipher Text \
+    String into the original Message Using Affine \
+    Cipher Technique
 
     \nPARAMETERS\n
     CipherText: string to be decrypted
@@ -59,7 +65,11 @@ def decrypt(Cipher_Text, a, b):
     for char in Cipher_Text_chars:
         for i in char:
             if i in ENGLISH_ALPHABETS:
-                index = (a_inverse*(ENGLISH_ALPHABETS.index(i)-b)) % 26
+                index = (
+                    a_inverse*(
+                        ENGLISH_ALPHABETS.index(i)-b
+                    )
+                ) % 26
                 message += ENGLISH_ALPHABETS[index]
             else:
                 print("Invalid Input\n")
