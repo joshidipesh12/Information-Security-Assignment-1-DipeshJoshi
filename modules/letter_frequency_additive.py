@@ -19,7 +19,7 @@ def possible_messages(cipher_text: str):
     in the order of likelihood (most to least)
     """
 
-    possible_strings = dict({})  # key: string
+    possible_strings = []
 
     letter_frequencies = dict({i: 0 for i in ENGLISH_ALPHABETS})
 
@@ -35,6 +35,6 @@ def possible_messages(cipher_text: str):
         key = (ENGLISH_ALPHABETS.index(sorted_letters[i])
                - ENGLISH_ALPHABETS.index(ENGLISH_LETTERS_SORTED[i])) % 26
         possible_message = decrypt(cipher_text, key)
-        possible_strings.update({key: possible_message})
+        possible_strings.append(possible_message)
 
-    return list(possible_strings.values())
+    return possible_strings
