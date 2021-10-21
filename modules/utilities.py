@@ -76,16 +76,13 @@ def string_to_Matrix_Z26(message, m_rows, n_cols):
         return
 
     else:  # converting alphabets to numbers in Z-26
+
         matrix_list = []
         for i in message.upper():
             if i in ENGLISH_ALPHABETS:
                 matrix_list.append(ENGLISH_ALPHABETS.index(i))
-            else:
-                print("Invalid Input\n")
-                return
-
-        matrix_list = [ENGLISH_ALPHABETS.index(
-            i) for i in message.upper()]
+            else:  # inserting 'Z' inplace of other chars
+                matrix_list.append(ENGLISH_ALPHABETS.index("Z"))
 
         for _ in range(overflow_count):
             # adding trailing Z as Dummy Alphabet
