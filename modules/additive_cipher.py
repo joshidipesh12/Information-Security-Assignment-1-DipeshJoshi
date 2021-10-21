@@ -69,7 +69,6 @@ def decrypt(CipherText, key):
 
             else:  # if invalid character is encountered
                 message += i
-                return
         message += " "
 
     # the last is leftout because of trailing space
