@@ -22,7 +22,8 @@ def encrypt(message, a, b):
     """
 
     if inverse_Z26(a) == None:
-        return
+        print("Please Try Again!")
+        return ""
 
     Cipher_Text = ""
     message_chars = message.upper().split(" ")
@@ -36,8 +37,7 @@ def encrypt(message, a, b):
                     + b) % 26
                 Cipher_Text += ENGLISH_ALPHABETS[index]
             else:
-                print("Invalid Input\n")
-                return
+                Cipher_Text += i
         Cipher_Text += " "
     return Cipher_Text[:-1]
 
@@ -58,7 +58,8 @@ def decrypt(Cipher_Text, a, b):
 
     a_inverse = inverse_Z26(a)
     if a_inverse == None:
-        return
+        print("Please Try Again")
+        return ""
 
     message = ""
     Cipher_Text_chars = Cipher_Text.upper().split(" ")
@@ -72,7 +73,6 @@ def decrypt(Cipher_Text, a, b):
                 ) % 26
                 message += ENGLISH_ALPHABETS[index]
             else:
-                print("Invalid Input\n")
-                return
+                message += i
         message += " "
     return message[:-1]
