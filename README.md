@@ -2,6 +2,11 @@
 
 ![python-shield]
 
+```bash
+# start from here
+python3 main.py
+```
+
 ## About Project
 
 This project includes solutions to the assignment under the subject `Information Security`.
@@ -10,11 +15,6 @@ This project includes solutions to the assignment under the subject `Information
 - Affine Cipher
 - Letter Frequency Attack
 - 2x2 Hill Cipher
-
-```bash
-# start from here
-python3 main.py
-```
 
 Date Assigned: October 14 '21
 
